@@ -1,0 +1,137 @@
+:root {
+    --primary: #1a5f7a;
+    --accent: #f4a259;
+    --bg: #f9fbfc;
+    --text-dark: #0b2135;
+    --text-light: #6b7b8c;
+    --card-bg: #ffffff;
+    --border: #e0e6ed;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-dark);
+}
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+header .brand {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 20px rgba(10, 20, 30, 0.05);
+}
+
+.grid-2, .grid-3, .insight-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.insight-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #f8fbff;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+input, textarea, select, button {
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #174d62;
+}
+
+.result, pre, code {
+    background: #0b2135;
+    color: #b6f5ff;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.insight-card {
+    border: 1px dashed var(--accent);
+    padding: 1rem;
+    border-radius: 12px;
+    background: #fffaf4;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+}
+
+@media (max-width: 640px) {
+    header { padding: 1rem; }
+    nav a { margin-left: 0.8rem; }
+}
+

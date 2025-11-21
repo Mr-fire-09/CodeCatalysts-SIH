@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Governance Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <img src="https://img.icons8.com/color/48/000000/government.png" alt="emblem">
+            <div>
+                <h1>CodeCatalysts Digital Governance</h1>
+                <p>Citizen centric | AI monitored | Trust assured</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#citizen">Citizen</a>
+            <a href="#official">Official</a>
+            <a href="#admin">Admin</a>
+            <a href="#insights">Insights</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="citizen" class="card">
+            <h2>Citizen Workspace</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Submit Application</h3>
+                    <form id="applicationForm">
+                        <label>Description</label>
+                        <textarea name="description" required></textarea>
+                        <label>Document URL (optional)</label>
+                        <input name="documentUrl" placeholder="https://...">
+                        <label>Priority</label>
+                        <select name="priority">
+                            <option value="1">Normal</option>
+                            <option value="2">Important</option>
+                            <option value="3">Critical</option>
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Track Application</h3>
+                    <form id="trackForm">
+                        <label>Tracking ID</label>
+                        <input name="trackingId" placeholder="DG-..." required>
+                        <button type="submit">Track</button>
+                    </form>
+                    <pre id="trackResult" class="result"></pre>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <h3>Feedback + OTP</h3>
+                    <form id="feedbackForm">
+                        <label>Tracking ID</label>
+                        <input name="trackingId" required>
+                        <label>Rating</label>
+                        <input type="number" name="rating" min="1" max="5" required>
+                        <label>Comment</label>
+                        <textarea name="comment" required></textarea>
+                        <label>OTP</label>
+                        <input name="otpCode" required placeholder="Enter 6 digit OTP">
+                        <button type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Status History (AI powered)</h3>
+                    <ul id="timeline"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="official" class="card">
+            <h2>Official Console</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Assigned Applications</h3>
+                    <ul id="officialApplications"></ul>
+                </div>
+                <div>
+                    <h3>Update Status</h3>
+                    <form id="statusForm">
+                        <label>Tracking ID</label>
+                        <input name="trackingId" required>
+                        <label>New Status</label>
+                        <select name="status">
+                            <option>IN_REVIEW</option>
+                            <option>APPROVED</option>
+                            <option>REJECTED</option>
+                            <option>ON_HOLD</option>
+                        </select>
+                        <label>Remarks</label>
+                        <textarea name="remarks" required></textarea>
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="card">
+            <h2>Admin Panel</h2>
+            <div class="grid-3">
+                <div>
+                    <h3>Assign Application</h3>
+                    <form id="assignForm">
+                        <label>Tracking ID</label>
+                        <input name="trackingId" required>
+                        <label>Official ID</label>
+                        <input name="officialId" required>
+                        <button type="submit">Assign</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Auto Approval Settings</h3>
+                    <form id="settingsForm">
+                        <label>Auto Approve Days</label>
+                        <input type="number" name="autoApproveDays" min="1" max="60" value="30">
+                        <label>Delay Threshold (hours)</label>
+                        <input type="number" name="delayThresholdHours" min="1" max="72" value="24">
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Delay Monitor</h3>
+                    <ul id="delays"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="card">
+            <h2>AI Insights & Blockchain Trail</h2>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h3>AI Workflow Events</h3>
+                    <ul id="aiEvents"></ul>
+                </div>
+                <div class="insight-card">
+                    <h3>Blockchain Anchor</h3>
+                    <p>Each approved document is hashed and anchored to a private chain.</p>
+                    <code id="hashChain">awaiting data...</code>
+                </div>
+                <div class="insight-card">
+                    <h3>Performance Score</h3>
+                    <p id="performanceScore">AI analyzing feedback...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 CodeCatalysts | Smart India Hackathon Ready</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
